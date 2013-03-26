@@ -6,5 +6,5 @@
   Draper から最小限の変更で ActiveDecorator に移行する手順
 
   1. class (.*)Decorator < Draper::Decorator を module #{$1}Decorator に置換
-  2. delegate_all を削除
-  3. app/decorators/paginating_decorator.rb があれば削除
+  2. delegate_all を extend DraperishActived::DrapperCompat に置換
+  3. rm -f app/decorators/paginating_decorator.rb

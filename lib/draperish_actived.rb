@@ -1,16 +1,6 @@
 require 'active_decorator'
 require 'rails/railtie'
 
-module DraperishActived
-  class Railtie < Rails::Railtie
-    config.after_initialize do |app|
-      Pathname.glob(Rails.root.join("app/decorators/**/*decorator.rb")) do |file|
-        file.basename(".*").to_s.classify.constantize.extend DrapperCompat
-      end
-    end
-  end
-end
-
 ActiveDecorator::Helpers.module_eval do
   remove_method :method_missing
 
