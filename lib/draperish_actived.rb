@@ -41,9 +41,9 @@ module DraperishActived
     def new(object)
       object.decorate_by(self)
     end
-  end
 
-  alias decorate new
+    alias decorate new
+  end
 end
 
 module PaginatingDecorator
