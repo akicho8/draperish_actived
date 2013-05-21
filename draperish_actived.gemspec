@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name         = "draperish_actived"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.author       = "akicho8"
   s.email        = "akicho8@gmail.com"
   s.homepage     = "https://github.com/akicho8/draperish_actived"
