@@ -36,9 +36,11 @@ Object.class_eval do
   end
 end
 
-module DraperishActived::DrapperCompat
-  def new(object)
-    object.decorate_by(self)
+module DraperishActived
+  module DrapperCompat
+    def new(object)
+      object.decorate_by(self)
+    end
   end
 
   alias decorate new
