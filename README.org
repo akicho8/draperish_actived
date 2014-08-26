@@ -1,9 +1,17 @@
 #+OPTIONS: toc:nil num:nil author:nil creator:nil \n:nil |:t
 #+OPTIONS: @:t ::t ^:t -:t f:t *:t <:t
 
-* Draper風のActiveDecorator
+* DraperとActiveDecoratorのいいとこどり
 
-  Draper から最小限の変更で ActiveDecorator に移行する手順
+** 仕様
+
+   - view_context は h で参照する (ヘルパーメソッドをそのまま呼ばせない)
+   - source と model メソッドは self を返す (Draperから移行したときの互換性のため)
+   - Decorator が伝搬してないオブジェクトは obj.decorate とする ※ ActiveDecorator::Decorator.instance.decorate(self) 相当
+   - 対応する Decorator がそれじゃない場合は foo.decorate_by(BarDecorator)
+   - Decorator に extend DraperishActived::DrapperCompat しとけば FooDecorator.new(foo) や FooDecorator.decorate(foo) と書けてより Drapper 風になる
+
+**  Draper から最小限の変更で ActiveDecorator に移行する手順
 
   1. class (.*)Decorator < Draper::Decorator を module #{$1}Decorator に置換
   2. delegate_all を extend DraperishActived::DrapperCompat に置換
